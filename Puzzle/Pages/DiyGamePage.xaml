@@ -1,0 +1,148 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Puzzle.Pages.DiyGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls:Pivot Name="settingAndAboutPivot">
+            <controls:Pivot.TitleTemplate>
+                <DataTemplate>
+                    <StackPanel Width="1000" Height="60"  Margin="0, 0, 0, 0" Background="{StaticResource PhoneAccentBrush}" Orientation="Horizontal">
+                        <Image Source="/Images/3x3.png" Width="35" Height="35" Margin="20,8,8,0"></Image>
+                        <TextBlock Text="拼图游戏" FontSize="36" Margin="8" IsHitTestVisible="False"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:Pivot.TitleTemplate>
+
+            <controls:PivotItem Header="自定游戏">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="185"/>
+                        <RowDefinition Height="185"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="185"/>
+                        <ColumnDefinition Width="185"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Name="loadButton" 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Bottom"
+                         BorderThickness="0"
+                        Background="{StaticResource PhoneAccentBrush}"
+                        Padding="15,0,0,15"
+                        Margin="-5"
+                        Click="OnChoosePhotoBtnClick">
+                        <StackPanel Width="150" Height="150">
+                            <Image Height="100"
+                                    Width="100"
+                                    Source="/Images/picture_folder.png" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom"/>
+                            <TextBlock Text="选择图片"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+
+                    <Button Name="takePhotoBtn"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="-5"
+                        VerticalContentAlignment="Bottom"
+                        HorizontalContentAlignment="Left"
+                        BorderThickness="0"
+                        Background="{StaticResource PhoneAccentBrush}"
+                        Padding="15,0,0,15"
+                        Click="OnTakePhotoBtnClick">
+                        <StackPanel Width="150" Height="150">
+                            <Image Height="100"
+                                    Width="100"
+                                    Source="/Images/camera.png" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom"/>
+                            <TextBlock Text="拍照"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="tiles33Btn"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        IsEnabled="False" 
+                        BorderThickness="0"
+                        Click="OnTiles33BtnClick">
+                        <Canvas >
+                            <StackPanel Orientation="Vertical" Canvas.Left="-85" Canvas.Top="-80">
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="4"  Width="45" Height="45" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+
+                    </Button>
+
+                    <Button Name="tiles44Btn" 
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsEnabled="False" 
+                        BorderThickness="0"
+                        Click="OnTiles44BtnClick">
+                        <Canvas >
+                            <StackPanel Orientation="Vertical" Canvas.Left="-85" Canvas.Top="-80">
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                    <Rectangle Margin="3"  Width="35" Height="35" Fill="{StaticResource PhoneAccentBrush}"></Rectangle>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+                    </Button>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

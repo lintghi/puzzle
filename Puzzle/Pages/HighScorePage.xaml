@@ -1,0 +1,80 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Puzzle.Pages.HighScorePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls:Pivot Title="我的应用程序">
+            <controls:Pivot.TitleTemplate>
+                <DataTemplate>
+                    <StackPanel Width="1000" Height="60"  Margin="0, 0, 0, 0" Background="{StaticResource PhoneAccentBrush}" Orientation="Horizontal">
+                        <Image Source="/Images/3x3.png" Width="35" Height="35" Margin="20,8,8,0"></Image>
+                        <TextBlock Text="拼图游戏" FontSize="36" Margin="8" IsHitTestVisible="False"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:Pivot.TitleTemplate>
+            <controls:PivotItem Header="最佳排行">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="移动次数" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalContentAlignment="Bottom" 
+                                BorderThickness="0"
+                                Background="{StaticResource PhoneAccentBrush}"
+                                Width="150" Height="150">
+                        </Button>
+
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Name="moveCountTextBlock"  Text="{Binding MoveCount}" />
+                            <TextBlock Text="次" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="用时" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalContentAlignment="Bottom" 
+                                BorderThickness="0"
+                                Background="{StaticResource PhoneAccentBrush}"
+                                Width="150" Height="150"
+                                >
+                        </Button>
+
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Name="timeUsedTextBlock" Text="{Binding ConsumeSeconds}"></TextBlock>
+                            <TextBlock Text="秒" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--<TextBlock Text="@Cfuture Studio" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Bottom"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               />-->
+                </StackPanel>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton 
+                IconUri="/Images/home.png" 
+                Text="主页"
+                Click="OnGoToHomeAppBarBtnClick"
+                />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    
+</phone:PhoneApplicationPage>
